@@ -38,7 +38,6 @@ This driver is compatible with HDC2080, HDC2021 and HDC2010.
 
 Datasheets: [HDC2080](https://www.ti.com/lit/ds/symlink/hdc2080.pdf), [HDC2021](https://www.ti.com/lit/ds/symlink/hdc2021.pdf), [HDC2010](https://www.ti.com/lit/ds/symlink/hdc2010.pdf)
 
-<!-- TODO
 ## Usage
 
 To use this driver, import this crate and an `embedded_hal` implementation,
@@ -49,8 +48,25 @@ Please find additional examples using hardware in this repository: [driver-examp
 [driver-examples]: https://github.com/eldruin/driver-examples
 
 ```rust
+extern crate linux_embedded_hal as hal;
+use hdc20xx::{Hdc20xx, SlaveAddr};
+use nb::block;
+
+fn main() {
+    let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+    let address = SlaveAddr::default();
+    let mut sensor = Hdc20xx::new(dev, address);
+    loop {
+        let data = block!(sensor.read()).unwrap();
+        println!(
+            "Temperature: {:2}°C, Humidity: {:2}%",
+            data.temperature,
+            data.humidity.unwrap()
+        );
+    }
+}
 ```
--->
+
 ## Support
 
 For questions, issues, feature requests, and other changes, please file an

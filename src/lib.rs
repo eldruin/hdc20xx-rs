@@ -40,6 +40,98 @@
 //!
 //! Datasheets: [HDC2080](https://www.ti.com/lit/ds/symlink/hdc2080.pdf), [HDC2021](https://www.ti.com/lit/ds/symlink/hdc2021.pdf), [HDC2010](https://www.ti.com/lit/ds/symlink/hdc2010.pdf)
 //!
+//! ## Usage examples (see also examples folder)
+//!
+//! To use this driver, import this crate and an `embedded_hal` implementation,
+//! then instantiate the device.
+//!
+//! Please find additional examples using hardware in this repository: [driver-examples]
+//!
+//! [driver-examples]: https://github.com/eldruin/driver-examples
+//!
+//! ### Make a one-shot temperature and humidity measurement
+//!
+//! ```no_run
+//! extern crate linux_embedded_hal as hal;
+//! use hdc20xx::{Hdc20xx, SlaveAddr};
+//! use nb::block;
+//! 
+//! # fn main() {
+//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! let address = SlaveAddr::default();
+//! let mut sensor = Hdc20xx::new(dev, address);
+//! loop {
+//!     let data = block!(sensor.read()).unwrap();
+//!     println!(
+//!         "Temperature: {:2}°C, Humidity: {:2}%",
+//!         data.temperature,
+//!         data.humidity.unwrap()
+//!     );
+//! }
+//! # }
+//! ```
+//! 
+//! ### Use an alternative address
+//!
+//! ```no_run
+//! extern crate linux_embedded_hal as hal;
+//! use hdc20xx::{Hdc20xx, SlaveAddr};
+//! 
+//! # fn main() {
+//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! let address = SlaveAddr::Alternative(true);
+//! let sensor = Hdc20xx::new(dev, address);
+//! # }
+//! ```
+//! 
+//! ### Configure measuring only the temperature
+//!
+//! ```no_run
+//! extern crate linux_embedded_hal as hal;
+//! use hdc20xx::{Hdc20xx, MeasurementMode, SlaveAddr};
+//! 
+//! # fn main() {
+//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! let address = SlaveAddr::default();
+//! let mut sensor = Hdc20xx::new(dev, address);
+//! sensor.set_measurement_mode(MeasurementMode::TemperatureOnly).unwrap();
+//! # }
+//! ```
+//! 
+//! ### Read the manufacturer and device ID
+//!
+//! ```no_run
+//! extern crate linux_embedded_hal as hal;
+//! use hdc20xx::{Hdc20xx, SlaveAddr};
+//! 
+//! # fn main() {
+//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! let address = SlaveAddr::default();
+//! let mut sensor = Hdc20xx::new(dev, address);
+//! let manuf_id = sensor.manufacturer_id().unwrap();
+//! let dev_id = sensor.device_id().unwrap();
+//! println!(
+//!     "Manufacturer ID: {}, Device ID: {}",
+//!     manuf_id, dev_id
+//! );
+//! # }
+//! ```
+//! 
+//! ### Read the data and interrupt status
+//!
+//! ```no_run
+//! extern crate linux_embedded_hal as hal;
+//! use hdc20xx::{Hdc20xx, SlaveAddr};
+//! 
+//! # fn main() {
+//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! let address = SlaveAddr::default();
+//! let mut sensor = Hdc20xx::new(dev, address);
+//! let status = sensor.status().unwrap();
+//! println!("Status: {:?}", status);
+//! # }
+//! ```
+//! 
 #![deny(unsafe_code, missing_docs)]
 #![no_std]
 
