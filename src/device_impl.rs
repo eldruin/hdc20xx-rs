@@ -6,7 +6,7 @@ use core::marker::PhantomData;
 use embedded_hal::blocking::i2c;
 
 impl<I2C> Hdc2080<I2C, mode::OneShot> {
-    /// Create new instance of the HDC2080 device.
+    /// Create new instance of the device.
     pub fn new(i2c: I2C, address: SlaveAddr) -> Self {
         Hdc2080 {
             i2c,
@@ -42,7 +42,7 @@ where
         Ok(())
     }
 
-    /// Read status
+    /// Read data and interrupt status
     pub fn status(&mut self) -> Result<Status, Error<E>> {
         let status = self.read_register(Register::DRDY)?;
         Ok(Status {

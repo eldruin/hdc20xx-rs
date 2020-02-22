@@ -8,9 +8,14 @@
 This is a platform agnostic Rust driver for the HDC2080 low-power humidity and
 temperature digital sensor using the [`embedded-hal`] traits.
 
-<!-- TODO
 This driver allows you to:
--->
+- Set the measurement mode. Temperature only or temperature and humidity. See: `set_measurement_mode()`.
+- Make one shot measurement. See: `read()`.
+- Read the data and interrupt status. See: `status()`.
+- Trigger a software reset. See: `software_reset()`.
+- Read the manufacturer ID. See: `manufacturer_id()`.
+- Read the device ID. See: `device_id()`.
+
 <!-- TODO
 [Introductory blog post]()
 -->

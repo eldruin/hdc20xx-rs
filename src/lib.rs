@@ -3,9 +3,20 @@
 //!
 //! [`embedded-hal`]: https://github.com/rust-embedded/embedded-hal
 //!
-//! <!-- TODO
 //! This driver allows you to:
-//! -->
+//! - Set the measurement mode. Temperature only or temperature and humidity. See: [`set_measurement_mode()`].
+//! - Make one shot measurement. See: [`read()`].
+//! - Read the data and interrupt status. See: [`status()`].
+//! - Trigger a software reset. See: [`software_reset()`].
+//! - Read the manufacturer ID. See: [`manufacturer_id()`].
+//! - Read the device ID. See: [`device_id()`].
+//! 
+//! [`set_measurement_mode()`]: struct.Hdc2080.html#method.set_measurement_mode
+//! [`read()`]: struct.Hdc2080.html#method.read
+//! [`status()`]: struct.Hdc2080.html#method.status
+//! [`software_reset()`]: struct.Hdc2080.html#method.software_reset
+//! [`manufacturer_id()`]: struct.Hdc2080.html#method.manufacturer_id
+//! [`device_id()`]: struct.Hdc2080.html#method.device_id
 //!
 //! <!-- TODO
 //! [Introductory blog post](TODO)
