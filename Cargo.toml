@@ -1,15 +1,15 @@
 [package]
-name = "hdc2080"
+name = "hdc20xx"
 version = "0.1.0"
 authors = ["Diego Barrios Romero <eldruin@gmail.com>"]
-repository = "https://github.com/eldruin/hdc2080-rs"
+repository = "https://github.com/eldruin/hdc20xx-rs"
 license = "MIT OR Apache-2.0"
-description = "Platform-agnostic Rust driver for the HDC2080 low-power humidity and temperature digital sensor. Compatible with HDC2080, HDC2010 and HDC2021."
+description = "Platform-agnostic Rust driver for the HDC2080, HDC2010 and HDC2021 low-power humidity and temperature digital sensor."
 readme = "README.md"
 keywords = ["humidity", "temperature", "sensor", "embedded-hal-driver"]
 categories = ["embedded", "hardware-support", "no-std"]
-homepage = "https://github.com/eldruin/hdc2080-rs"
-documentation = "https://docs.rs/hdc2080"
+homepage = "https://github.com/eldruin/hdc20xx-rs"
+documentation = "https://docs.rs/hdc20xx"
 include = [
     "/**/*.rs",
     "/Cargo.toml",
@@ -21,8 +21,8 @@ include = [
 edition = "2018"
 
 [badges]
-travis-ci = { repository = "eldruin/hdc2080-rs", branch = "master" }
-coveralls = { repository = "eldruin/hdc2080-rs", branch = "master", service = "github" }
+travis-ci = { repository = "eldruin/hdc20xx-rs", branch = "master" }
+coveralls = { repository = "eldruin/hdc20xx-rs", branch = "master", service = "github" }
 
 [dependencies]
 embedded-hal = "0.2.3"

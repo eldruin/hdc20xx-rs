@@ -1,5 +1,6 @@
-//! This is a platform agnostic Rust driver for the HDC2080 low-power humidity
-//! and temperature digital sensor using the [`embedded-hal`] traits.
+//! This is a platform agnostic Rust driver for the HDC2080, HDC2021 and
+//! HDC2010 low-power humidity and temperature digital sensor using
+//! the [`embedded-hal`] traits.
 //!
 //! [`embedded-hal`]: https://github.com/rust-embedded/embedded-hal
 //!
@@ -10,13 +11,13 @@
 //! - Trigger a software reset. See: [`software_reset()`].
 //! - Read the manufacturer ID. See: [`manufacturer_id()`].
 //! - Read the device ID. See: [`device_id()`].
-//! 
-//! [`set_measurement_mode()`]: struct.Hdc2080.html#method.set_measurement_mode
-//! [`read()`]: struct.Hdc2080.html#method.read
-//! [`status()`]: struct.Hdc2080.html#method.status
-//! [`software_reset()`]: struct.Hdc2080.html#method.software_reset
-//! [`manufacturer_id()`]: struct.Hdc2080.html#method.manufacturer_id
-//! [`device_id()`]: struct.Hdc2080.html#method.device_id
+//!
+//! [`set_measurement_mode()`]: struct.Hdc20xx.html#method.set_measurement_mode
+//! [`read()`]: struct.Hdc20xx.html#method.read
+//! [`status()`]: struct.Hdc20xx.html#method.status
+//! [`software_reset()`]: struct.Hdc20xx.html#method.software_reset
+//! [`manufacturer_id()`]: struct.Hdc20xx.html#method.manufacturer_id
+//! [`device_id()`]: struct.Hdc20xx.html#method.device_id
 //!
 //! <!-- TODO
 //! [Introductory blog post](TODO)
@@ -49,9 +50,9 @@ pub use crate::types::{Error, Measurement, MeasurementMode, SlaveAddr, Status};
 mod register_address;
 use crate::register_address::{BitFlags, Register, BASE_ADDR};
 
-/// HDC2080 device driver
+/// HDC2080, HDC2021 and HDC2010 device driver
 #[derive(Debug)]
-pub struct Hdc2080<I2C, MODE> {
+pub struct Hdc20xx<I2C, MODE> {
     i2c: I2C,
     address: u8,
     meas_config: Config,

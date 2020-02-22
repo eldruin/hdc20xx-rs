@@ -1,11 +1,11 @@
 extern crate linux_embedded_hal as hal;
-use hdc2080::{Hdc2080, SlaveAddr};
+use hdc20xx::{Hdc20xx, SlaveAddr};
 use nb::block;
 
 fn main() {
     let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
     let address = SlaveAddr::default();
-    let mut sensor = Hdc2080::new(dev, address);
+    let mut sensor = Hdc20xx::new(dev, address);
     loop {
         let data = block!(sensor.read()).unwrap();
         println!(

@@ -1,14 +1,14 @@
 use crate::{
-    mode, BitFlags, Config, Error, Hdc2080, Measurement, MeasurementMode, Register, SlaveAddr,
+    mode, BitFlags, Config, Error, Hdc20xx, Measurement, MeasurementMode, Register, SlaveAddr,
     Status,
 };
 use core::marker::PhantomData;
 use embedded_hal::blocking::i2c;
 
-impl<I2C> Hdc2080<I2C, mode::OneShot> {
+impl<I2C> Hdc20xx<I2C, mode::OneShot> {
     /// Create new instance of the device.
     pub fn new(i2c: I2C, address: SlaveAddr) -> Self {
-        Hdc2080 {
+        Hdc20xx {
             i2c,
             address: address.addr(),
             meas_config: Config { bits: 0 },
@@ -18,14 +18,14 @@ impl<I2C> Hdc2080<I2C, mode::OneShot> {
     }
 }
 
-impl<I2C, MODE> Hdc2080<I2C, MODE> {
+impl<I2C, MODE> Hdc20xx<I2C, MODE> {
     /// Destroy driver instance, return I2C bus.
     pub fn destroy(self) -> I2C {
         self.i2c
     }
 }
 
-impl<I2C, E, MODE> Hdc2080<I2C, MODE>
+impl<I2C, E, MODE> Hdc20xx<I2C, MODE>
 where
     I2C: i2c::WriteRead<Error = E> + i2c::Write<Error = E>,
 {
@@ -65,7 +65,7 @@ where
     }
 }
 
-impl<I2C, E> Hdc2080<I2C, mode::OneShot>
+impl<I2C, E> Hdc20xx<I2C, mode::OneShot>
 where
     I2C: i2c::WriteRead<Error = E> + i2c::Write<Error = E>,
 {

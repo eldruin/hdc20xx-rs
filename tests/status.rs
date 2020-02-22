@@ -1,7 +1,7 @@
 mod common;
 use crate::common::{destroy, new, BitFlags as BF, Register, BASE_ADDR};
 use embedded_hal_mock::i2c::Transaction as I2cTrans;
-use hdc2080::Status;
+use hdc20xx::Status;
 
 macro_rules! test {
     ($name:ident, $value:expr, $drdy:expr, $htemp:expr, $ltemp:expr,

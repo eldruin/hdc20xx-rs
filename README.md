@@ -1,12 +1,13 @@
-# Rust HDC2080 Low-Power Humidity and Temperature Digital Sensor Driver
+# Rust HDC2080, HDC2021 and HDC2010 Low-Power Humidity and Temperature Digital Sensor Driver
 
-[![crates.io](https://img.shields.io/crates/v/hdc2080.svg)](https://crates.io/crates/hdc2080)
-[![Docs](https://docs.rs/hdc2080/badge.svg)](https://docs.rs/hdc2080)
-[![Build Status](https://travis-ci.com/eldruin/hdc2080-rs.svg?branch=master)](https://travis-ci.com/eldruin/hdc2080-rs)
-[![Coverage Status](https://coveralls.io/repos/github/eldruin/hdc2080-rs/badge.svg?branch=master)](https://coveralls.io/github/eldruin/hdc2080-rs?branch=master)
+[![crates.io](https://img.shields.io/crates/v/hdc20xx.svg)](https://crates.io/crates/hdc20xx)
+[![Docs](https://docs.rs/hdc20xx/badge.svg)](https://docs.rs/hdc20xx)
+[![Build Status](https://travis-ci.com/eldruin/hdc20xx-rs.svg?branch=master)](https://travis-ci.com/eldruin/hdc20xx-rs)
+[![Coverage Status](https://coveralls.io/repos/github/eldruin/hdc20xx-rs/badge.svg?branch=master)](https://coveralls.io/github/eldruin/hdc20xx-rs?branch=master)
 
-This is a platform agnostic Rust driver for the HDC2080 low-power humidity and
-temperature digital sensor using the [`embedded-hal`] traits.
+This is a platform agnostic Rust driver for the HDC2080, HDC2021 and HDC2010
+low-power humidity and temperature digital sensor using the [`embedded-hal`]
+traits.
 
 This driver allows you to:
 - Set the measurement mode. Temperature only or temperature and humidity. See: `set_measurement_mode()`.
@@ -51,7 +52,7 @@ Please find additional examples using hardware in this repository: [driver-examp
 ## Support
 
 For questions, issues, feature requests, and other changes, please file an
-[issue in the github project](https://github.com/eldruin/hdc2080-rs/issues).
+[issue in the github project](https://github.com/eldruin/hdc20xx-rs/issues).
 
 ## License
 

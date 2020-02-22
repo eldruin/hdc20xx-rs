@@ -1,4 +1,4 @@
-use crate::{Error, Hdc2080};
+use crate::{Error, Hdc20xx};
 use embedded_hal::blocking::i2c;
 
 pub const BASE_ADDR: u8 = 0x40;
@@ -24,7 +24,7 @@ impl BitFlags {
     pub const HL_STATUS: u8 = 1 << 3;
 }
 
-impl<I2C, E, MODE> Hdc2080<I2C, MODE>
+impl<I2C, E, MODE> Hdc20xx<I2C, MODE>
 where
     I2C: i2c::Write<Error = E>,
 {
@@ -35,7 +35,7 @@ where
     }
 }
 
-impl<I2C, E, MODE> Hdc2080<I2C, MODE>
+impl<I2C, E, MODE> Hdc20xx<I2C, MODE>
 where
     I2C: i2c::WriteRead<Error = E>,
 {

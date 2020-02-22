@@ -1,7 +1,7 @@
 mod common;
 use crate::common::{destroy, new, BitFlags as BF, Register, BASE_ADDR};
 use embedded_hal_mock::i2c::Transaction as I2cTrans;
-use hdc2080::MeasurementMode;
+use hdc20xx::MeasurementMode;
 
 #[test]
 fn can_create_and_destroy() {

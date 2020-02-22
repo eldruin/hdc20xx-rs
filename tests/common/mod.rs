@@ -1,5 +1,5 @@
 use embedded_hal_mock::i2c::{Mock as I2cMock, Transaction as I2cTrans};
-use hdc2080::{mode, Hdc2080, SlaveAddr};
+use hdc20xx::{mode, Hdc20xx, SlaveAddr};
 
 pub struct Register;
 #[allow(unused)]
@@ -27,11 +27,11 @@ impl BitFlags {
 pub const BASE_ADDR: u8 = 0x40;
 
 #[allow(unused)]
-pub fn new(transactions: &[I2cTrans]) -> Hdc2080<I2cMock, mode::OneShot> {
-    Hdc2080::new(I2cMock::new(transactions), SlaveAddr::default())
+pub fn new(transactions: &[I2cTrans]) -> Hdc20xx<I2cMock, mode::OneShot> {
+    Hdc20xx::new(I2cMock::new(transactions), SlaveAddr::default())
 }
 
 #[allow(unused)]
-pub fn destroy<MODE>(sensor: Hdc2080<I2cMock, MODE>) {
+pub fn destroy<MODE>(sensor: Hdc20xx<I2cMock, MODE>) {
     sensor.destroy().done();
 }
