@@ -21,6 +21,8 @@ This driver allows you to:
 [Introductory blog post]()
 -->
 
+## The devices
+
 The HDC2080 device is an integrated humidity and temperature sensor that
 provides high accuracy measurements with very low power consumption in a
 small DFN package. The capacitive-based sensor includes new integrated
