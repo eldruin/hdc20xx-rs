@@ -10,14 +10,6 @@ keywords = ["humidity", "temperature", "sensor", "embedded-hal-driver"]
 categories = ["embedded", "hardware-support", "no-std"]
 homepage = "https://github.com/eldruin/hdc20xx-rs"
 documentation = "https://docs.rs/hdc20xx"
-include = [
-    "/**/*.rs",
-    "/Cargo.toml",
-    "/README.md",
-    "/CHANGELOG.md",
-    "/LICENSE-MIT",
-    "/LICENSE-APACHE",
-]
 edition = "2018"
 
 [badges]
