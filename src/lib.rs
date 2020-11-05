@@ -79,42 +79,37 @@
 //!     }
 //! }
 //! ```
-//! 
+//!
 //! ### Use an alternative address
 //!
 //! ```no_run
-//! extern crate linux_embedded_hal as hal;
 //! use hdc20xx::{Hdc20xx, SlaveAddr};
-//! 
-//! # fn main() {
-//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! use linux_embedded_hal::I2cdev;
+//!
+//! let dev = I2cdev::new("/dev/i2c-1").unwrap();
 //! let address = SlaveAddr::Alternative(true);
 //! let sensor = Hdc20xx::new(dev, address);
-//! # }
 //! ```
-//! 
+//!
 //! ### Configure measuring only the temperature
 //!
 //! ```no_run
-//! extern crate linux_embedded_hal as hal;
 //! use hdc20xx::{Hdc20xx, MeasurementMode, SlaveAddr};
-//! 
-//! # fn main() {
-//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! use linux_embedded_hal::I2cdev;
+//!
+//! let dev = I2cdev::new("/dev/i2c-1").unwrap();
 //! let address = SlaveAddr::default();
 //! let mut sensor = Hdc20xx::new(dev, address);
 //! sensor.set_measurement_mode(MeasurementMode::TemperatureOnly).unwrap();
-//! # }
 //! ```
-//! 
+//!
 //! ### Read the manufacturer and device ID
 //!
 //! ```no_run
-//! extern crate linux_embedded_hal as hal;
 //! use hdc20xx::{Hdc20xx, SlaveAddr};
-//! 
-//! # fn main() {
-//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! use linux_embedded_hal::I2cdev;
+//!
+//! let dev = I2cdev::new("/dev/i2c-1").unwrap();
 //! let address = SlaveAddr::default();
 //! let mut sensor = Hdc20xx::new(dev, address);
 //! let manuf_id = sensor.manufacturer_id().unwrap();
@@ -123,24 +118,21 @@
 //!     "Manufacturer ID: {}, Device ID: {}",
 //!     manuf_id, dev_id
 //! );
-//! # }
 //! ```
-//! 
+//!
 //! ### Read the data and interrupt status
 //!
 //! ```no_run
-//! extern crate linux_embedded_hal as hal;
 //! use hdc20xx::{Hdc20xx, SlaveAddr};
-//! 
-//! # fn main() {
-//! let dev = hal::I2cdev::new("/dev/i2c-1").unwrap();
+//! use linux_embedded_hal::I2cdev;
+//!
+//! let dev = I2cdev::new("/dev/i2c-1").unwrap();
 //! let address = SlaveAddr::default();
 //! let mut sensor = Hdc20xx::new(dev, address);
 //! let status = sensor.status().unwrap();
 //! println!("Status: {:?}", status);
-//! # }
 //! ```
-//! 
+//!
 #![deny(unsafe_code, missing_docs)]
 #![no_std]
 
