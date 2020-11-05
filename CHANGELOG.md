@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-...
+### Fixed
+- Replaced usage of `nb::block!` macro in examples with explicit loop including
+  a delay between repetitions. Without this the repetitions can be too quick and
+  some devices do not respond correctly. Thanks to @bernardoaraujor for noticing this.
 
 ## [0.1.0] - 2020-03-01
 
