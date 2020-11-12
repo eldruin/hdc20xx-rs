@@ -2,7 +2,7 @@
 
 [![crates.io](https://img.shields.io/crates/v/hdc20xx.svg)](https://crates.io/crates/hdc20xx)
 [![Docs](https://docs.rs/hdc20xx/badge.svg)](https://docs.rs/hdc20xx)
-[![Build Status](https://travis-ci.com/eldruin/hdc20xx-rs.svg?branch=master)](https://travis-ci.com/eldruin/hdc20xx-rs)
+[![Build Status](https://github.com/eldruin/hdc20xx-rs/workflows/Build/badge.svg)](https://github.com/eldruin/hdc20xx-rs/actions?query=workflow%3ABuild)
 [![Coverage Status](https://coveralls.io/repos/github/eldruin/hdc20xx-rs/badge.svg?branch=master)](https://coveralls.io/github/eldruin/hdc20xx-rs?branch=master)
 
 This is a platform agnostic Rust driver for the HDC2080, HDC2021 and HDC2010

@@ -13,7 +13,6 @@ documentation = "https://docs.rs/hdc20xx"
 edition = "2018"
 
 [badges]
-travis-ci = { repository = "eldruin/hdc20xx-rs", branch = "master" }
 coveralls = { repository = "eldruin/hdc20xx-rs", branch = "master", service = "github" }
 
 [dependencies]
